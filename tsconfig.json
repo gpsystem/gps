@@ -3,7 +3,10 @@
     "target": "es2015",
     "strict": true,
     "jsx": "react",
-    "moduleResolution": "node"
+    "lib": ["es6", "dom"],
+    "moduleResolution": "node",
+    "resolveJsonModule": true,
+    "forceConsistentCasingInFileNames": true
   },
-  "include": ["src/**/*.ts", "src/**/*.tsx"]
+  "include": ["src"]
 }
