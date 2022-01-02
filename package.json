@@ -7,6 +7,8 @@
     "check-format": "prettier . --check --ignore-path .gitignore",
     "check-spelling": "cspell --config=.cspell.json \"**/*.{md,mdx,ts,js,tsx,jsx}\"",
     "test": "jest",
+    "typecheck": "tsc --noEmit",
+    "precommit": "npm run typecheck && npm test && npm run check-format && npm run lint && npm run check-spelling",
     "prepare": "husky install",
     "prettier": "prettier . --write --ignore-path .gitignore",
     "lint": "eslint . --ignore-path .gitignore"
