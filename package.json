@@ -1,0 +1,43 @@
+{
+  "name": "gps",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "check-format": "prettier . --check --ignore-path .gitignore",
+    "check-spelling": "cspell --config=.cspell.json \"**/*.{md,mdx,ts,js,tsx,jsx}\"",
+    "test": "jest",
+    "prepare": "husky install",
+    "prettier": "prettier . --write --ignore-path .gitignore",
+    "lint": "eslint . --ignore-path .gitignore"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/gpsystem/gps.git"
+  },
+  "keywords": [],
+  "contributors": [
+    "Nicolas Rodriguez (https://github.com/nicolas377)"
+  ],
+  "author": "GeoFS Plugin System",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/gpsystem/gps/issues"
+  },
+  "homepage": "https://github.com/gpsystem/gps#readme",
+  "devDependencies": {
+    "@types/jest": "^27.4.0",
+    "@typescript-eslint/eslint-plugin": "^5.8.1",
+    "cspell": "^5.14.0",
+    "eslint": "^8.6.0",
+    "eslint-config-prettier": "^8.3.0",
+    "eslint-plugin-react": "^7.28.0",
+    "husky": "^7.0.4",
+    "jest": "^27.4.5",
+    "jest-chrome": "^0.7.2",
+    "prettier": "^2.5.1",
+    "ts-jest": "^27.1.2",
+    "ts-node": "^10.4.0",
+    "typescript": "^4.5.4"
+  }
+}
