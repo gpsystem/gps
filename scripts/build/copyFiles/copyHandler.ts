@@ -1,6 +1,6 @@
-import { copySync } from "fs-extra";
+import { copy } from "fs-extra";
 import { getDestFromSrc } from "./getDestFromSrc";
 
 export function copyHandler(src: string) {
-  return copySync(src, getDestFromSrc(src));
+  return copy(src, getDestFromSrc(src));
 }

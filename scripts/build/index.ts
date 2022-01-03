@@ -1,10 +1,14 @@
-import clearBuildDir from "./clearBuildDir";
-import copyFiles from "./copyFiles";
-import fileLists from "./separatedFiles";
+import * as yargs from "yargs";
+import runBuild from "./buildCycle";
+import runWatch from "./watch";
 
-clearBuildDir();
-copyFiles([...fileLists.manifestJson, ...fileLists.toCopy]);
+const toWatch = yargs
+  .option("watch", {
+    type: "boolean",
+    default: false,
+    description: "rebuild on changes",
+  })
+  .help()
+  .parseSync().watch;
 
-// build the scripts to .bundle.js files
-// build tailwind
-// move html links
+toWatch ? runWatch() : runBuild();
