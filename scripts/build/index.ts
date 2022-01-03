@@ -1,5 +1,5 @@
 import * as yargs from "yargs";
-import runBuild from "./buildCycle";
+import runBuildCycle from "./buildCycle";
 import runWatch from "./watch";
 
 const toWatch = yargs
@@ -11,4 +11,4 @@ const toWatch = yargs
   .help()
   .parseSync().watch;
 
-toWatch ? runWatch() : runBuild();
+toWatch ? runWatch() : runBuildCycle();

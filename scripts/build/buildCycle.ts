@@ -2,7 +2,7 @@ import clearBuildDir from "./clearBuildDir";
 import copyFiles from "./copyFiles";
 import fileLists from "./separatedFiles";
 
-export default async function runBuild() {
+export default async function runBuildCycle() {
   clearBuildDir();
   await Promise.all([
     copyFiles([...fileLists.manifestJson, ...fileLists.toCopy]),
