@@ -16,11 +16,13 @@ plugins:
   - react
   - "@typescript-eslint"
 rules:
+  "@typescript-eslint/consistent-type-imports":
+    - error
+  eqeqeq:
+    - error
   semi:
     - error
     - always
-  "@typescript-eslint/consistent-type-imports":
-    - warn
 settings:
   react:
     version: detect

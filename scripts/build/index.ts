@@ -1,5 +1,10 @@
-import { toCompile, toCopy, htmlFiles, cssFiles } from "./fileSeparator";
+import clearBuildDir from "./clearBuildDir";
+import copyFiles from "./copyFiles";
+import fileLists from "./separatedFiles";
 
-// copy over the files needed
+clearBuildDir();
+copyFiles([...fileLists.manifestJson, ...fileLists.toCopy]);
 
 // build the scripts to .bundle.js files
+// build tailwind
+// move html links
