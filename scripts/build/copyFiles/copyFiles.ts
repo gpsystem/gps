@@ -1,5 +1,7 @@
 import { copyHandler } from "./copyHandler";
+import { normalizePaths } from "../normalizePaths";
 
-export function copyFiles(toCopy: string[]) {
-  return Promise.all(toCopy.map((file) => copyHandler(file)));
+export async function copyFiles(toCopy: string[]) {
+  toCopy = normalizePaths(toCopy);
+  await Promise.all(toCopy.map((file) => copyHandler(file)));
 }
