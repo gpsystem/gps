@@ -1,3 +1,4 @@
+import buildCss from "./buildCss";
 import buildScripts from "./buildScripts";
 import clearBuildDir from "./clearBuildDir";
 import copyFiles from "./copyFiles";
@@ -8,7 +9,7 @@ export default async function runBuildCycle() {
   await Promise.all([
     copyFiles([...fileLists.manifestJson, ...fileLists.toCopy]),
     buildScripts(fileLists.toCompile),
-    // TODO: build tailwind
+    buildCss(fileLists.cssFiles),
     // TODO: move html links
   ]);
 }
