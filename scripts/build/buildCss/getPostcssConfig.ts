@@ -10,7 +10,7 @@ export default function getPostcssConfig(path: string): AcceptedPlugin[] {
   return [
     tailwind({
       content: contentFiles,
-      darkMode: false,
+      darkMode: "media",
       theme: {
         extend: {},
       },
