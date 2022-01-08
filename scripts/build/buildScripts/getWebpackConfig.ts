@@ -6,7 +6,7 @@ export default function getWebpackConfig(
   untrustedSrcPath: string
 ): Configuration {
   const srcFile = resolve(untrustedSrcPath);
-  const destFileName = basename(srcFile).replace(/\.(ts|tsx)$/g, ".js");
+  const destFileName = basename(srcFile).replace(/\.(ts|tsx)$/g, ".dist.js");
   const destFilePath = resolve(dirname(getDestFromSrc(srcFile)));
 
   return {

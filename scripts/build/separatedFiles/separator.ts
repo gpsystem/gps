@@ -8,13 +8,11 @@ import type { SeparatedStructure } from "./SeparatedStructure";
  * @returns A list of the source files, organized by their needed actions.
  */
 export default function separator(): SeparatedStructure {
-  const toCompile = tsFileGetter();
-  const cssFiles = cssFileGetter();
   return {
-    toCompile,
+    toCompile: tsFileGetter(),
     toCopy: matchRegexAgainstAllSourceFiles(/\.(png|jpe?g|gif)$/g),
     htmlFiles: matchRegexAgainstAllSourceFiles(/\.html$/g),
-    cssFiles,
+    cssFiles: cssFileGetter(),
     manifestJson: matchRegexAgainstAllSourceFiles(/manifest\.json$/g),
   };
 }
