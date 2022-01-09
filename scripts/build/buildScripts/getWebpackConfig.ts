@@ -3,7 +3,8 @@ import { resolve, basename, dirname } from "path";
 import { getDestFromSrc } from "../getDestFromSrc";
 
 export default function getWebpackConfig(
-  untrustedSrcPath: string
+  untrustedSrcPath: string,
+  dev: boolean
 ): Configuration {
   const srcFile = resolve(untrustedSrcPath);
   const destFileName = basename(srcFile).replace(/\.(ts|tsx)$/g, ".dist.js");
@@ -11,7 +12,7 @@ export default function getWebpackConfig(
 
   return {
     entry: srcFile,
-    mode: process.env.DEVELOPMENT ? "development" : "production",
+    mode: dev ? "development" : "production",
     module: {
       rules: [
         {

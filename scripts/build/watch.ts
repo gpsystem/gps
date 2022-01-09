@@ -3,8 +3,8 @@ import runBuildCycle from "./buildCycle";
 import { extensionSourceDir } from "./dirNames";
 import { timeFunction } from "./timer";
 
-export default async function runWatch() {
-  const [, timeToComplete] = await timeFunction(runBuildCycle);
+export default async function runWatch(dev: boolean) {
+  const [, timeToComplete] = await timeFunction(() => runBuildCycle(dev));
   console.log(`Initial build complete, took ${timeToComplete}\n`);
   console.log(`Watching ${extensionSourceDir} for changes...\n`);
 
@@ -16,7 +16,7 @@ export default async function runWatch() {
   watcher
     .on("all", async () => {
       console.log("Changes detected, rebuilding...");
-      const [, timeToComplete] = await timeFunction(runBuildCycle);
+      const [, timeToComplete] = await timeFunction(() => runBuildCycle(dev));
       console.log(`Rebuilding complete, took ${timeToComplete}\n`);
     })
     .on("error", (err) => {

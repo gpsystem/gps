@@ -8,7 +8,6 @@ const minifyOptions: Options = {
   // medium risk
   collapseBooleanAttributes: true,
   removeEmptyAttributes: true,
-  removeEmptyElements: true,
   // high risk
   decodeEntities: true,
 };
