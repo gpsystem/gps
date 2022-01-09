@@ -12,5 +12,6 @@ export default async function runBuildCycle(dev: boolean) {
     buildScripts(fileLists.toCompile, dev),
     buildCss(fileLists.cssFiles),
     buildHtml(fileLists.htmlFiles),
+    // TODO: handle manifest.json
   ]);
 }

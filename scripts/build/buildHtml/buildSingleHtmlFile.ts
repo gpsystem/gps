@@ -9,7 +9,7 @@ export default async function buildSingleHtmlFile(path: string) {
   const newPath = getDestFromSrc(path).replace(/\.html$/, ".dist.html");
   const originalContent = await readFile(path, "utf-8");
   const finalHtml = minify(
-    transformHtmlTree(load(originalContent)).html(),
+    (await transformHtmlTree(load(originalContent))).html(),
     minifyOptions
   );
 
