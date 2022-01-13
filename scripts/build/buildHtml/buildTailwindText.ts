@@ -16,9 +16,11 @@ export default async function buildTailwindText(
     cssnano(),
   ];
 
-  const buildResult = await postcss(postcssConfig).process(originalCss, {
-    from: undefined,
-  }).then(result => result.css);
+  const buildResult = await postcss(postcssConfig)
+    .process(originalCss, {
+      from: undefined,
+    })
+    .then((result) => result.css);
 
   return buildResult;
 }
