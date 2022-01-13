@@ -1,0 +1,5 @@
+/* This file should be the only css file built with tailwind. */
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;

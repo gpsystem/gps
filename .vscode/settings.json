@@ -1,0 +1,6 @@
+{
+  "editor.quickSuggestions": {
+    // enables tailwindcss intellisense in jsx
+    "strings": true
+  }
+}
