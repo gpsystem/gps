@@ -1,5 +1,5 @@
 import { resolve } from "path";
 
-export function normalizePaths(pathsList: string[]) {
+export default function normalizePaths(pathsList: string[]) {
   return pathsList.map((path) => resolve(path));
 }

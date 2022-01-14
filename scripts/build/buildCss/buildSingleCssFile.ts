@@ -1,7 +1,7 @@
 import { dirname } from "path";
 import { readFileSync, writeFileSync, mkdirSync } from "fs-extra";
 import postcss from "postcss";
-import { getDestFromSrc } from "../getDestFromSrc";
+import getDestFromSrc from "../getDestFromSrc";
 import getPostcssConfig from "./getPostcssConfig";
 
 export default async function buildSingleCssFile(path: string) {

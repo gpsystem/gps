@@ -1,3 +1,3 @@
-import { copyFiles } from "./copyFiles";
+import copyFiles from "./copyFiles";
 
 export default copyFiles;

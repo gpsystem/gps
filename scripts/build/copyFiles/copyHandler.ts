@@ -1,6 +1,6 @@
 import { copy } from "fs-extra";
-import { getDestFromSrc } from "../getDestFromSrc";
+import getDestFromSrc from "../getDestFromSrc";
 
-export function copyHandler(src: string) {
+export default function copyHandler(src: string) {
   return copy(src, getDestFromSrc(src));
 }

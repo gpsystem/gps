@@ -1,7 +1,7 @@
 import { watch } from "chokidar";
 import runBuildCycle from "./buildCycle";
 import { extensionSourceDir } from "./dirNames";
-import { timeFunction } from "./timer";
+import timeFunction from "./timer";
 
 export default async function runWatch(dev: boolean) {
   const [, timeToComplete] = await timeFunction(() => runBuildCycle(dev));

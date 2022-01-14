@@ -1,6 +1,6 @@
 import cssFileGetter from "./cssFileGetter";
 import tsFileGetter from "./tsFileGetter";
-import { matchRegexAgainstAllSourceFiles } from "./matchRegexAgainstAllSourceFiles";
+import matchRegexAgainstAllSourceFiles from "./matchRegexAgainstAllSourceFiles";
 import type { SeparatedStructure } from "./SeparatedStructure";
 
 /**

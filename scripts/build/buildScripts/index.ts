@@ -1,4 +1,4 @@
-import { normalizePaths } from "../normalizePaths";
+import normalizePaths from "../normalizePaths";
 import buildSingleScript from "./buildSingleScript";
 
 export default async function buildScripts(toBuild: string[], dev: boolean) {

@@ -1,5 +1,5 @@
-import { normalizePaths } from "../../normalizePaths";
-import { matchRegexAgainstAllSourceFiles } from "../matchRegexAgainstAllSourceFiles";
+import normalizePaths from "../../normalizePaths";
+import matchRegexAgainstAllSourceFiles from "../matchRegexAgainstAllSourceFiles";
 import checkAllHtmlForCssLinks from "./checkAllHtmlForCssLinks";
 
 export default function cssFileGetter(): string[] {

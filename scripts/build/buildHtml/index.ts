@@ -1,4 +1,4 @@
-import { normalizePaths } from "../normalizePaths";
+import normalizePaths from "../normalizePaths";
 import buildSingleHtmlFile from "./buildSingleHtmlFile";
 
 export default async function buildHtml(untrustedHtmlPaths: string[]) {

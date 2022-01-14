@@ -1,6 +1,6 @@
-import { normalizePaths } from "../../normalizePaths";
-import { matchRegexAgainstAllSourceFiles } from "../matchRegexAgainstAllSourceFiles";
-import { checkHtmlForTsLinks } from "./checkHtmlForTsLinks";
+import normalizePaths from "../../normalizePaths";
+import matchRegexAgainstAllSourceFiles from "../matchRegexAgainstAllSourceFiles";
+import checkHtmlForTsLinks from "./checkHtmlForTsLinks";
 
 export default function tsFileGetter(): string[] {
   const possibleMatches = normalizePaths(

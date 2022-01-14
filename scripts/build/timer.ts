@@ -15,8 +15,7 @@ export function getTimeHandler() {
   return getElapsedTime;
 }
 
-// eslint-disable-next-line @typescript-eslint/ban-types
-export async function timeFunction<T>(
+export default async function timeFunction<T>(
   cb: () => T
 ): Promise<[Awaited<T>, string]> {
   const getElapsedTime = getTimeHandler();

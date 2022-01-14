@@ -1,6 +1,6 @@
 import type { Configuration } from "webpack";
 import { resolve, basename, dirname } from "path";
-import { getDestFromSrc } from "../getDestFromSrc";
+import getDestFromSrc from "../getDestFromSrc";
 
 export default function getWebpackConfig(
   untrustedSrcPath: string,

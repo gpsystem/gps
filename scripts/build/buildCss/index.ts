@@ -1,4 +1,4 @@
-import { normalizePaths } from "../normalizePaths";
+import normalizePaths from "../normalizePaths";
 import buildSingleCssFile from "./buildSingleCssFile";
 
 export default async function buildCss(untrustedCssPaths: string[]) {
