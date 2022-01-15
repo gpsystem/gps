@@ -20,9 +20,6 @@ rules:
     - error
   eqeqeq:
     - error
-  semi:
-    - error
-    - always
 settings:
   react:
     version: detect
