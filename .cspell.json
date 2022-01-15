@@ -11,7 +11,7 @@
     "**/dist/**",
     "**/node_modules/**"
   ],
-  "words": ["eqeqeq", "geofs", "nodir", "tailwindcss"],
+  "words": ["commitlint", "eqeqeq", "geofs", "nodir", "tailwindcss"],
   "dictionaries": [
     "typescript",
     "softwareTerms",
