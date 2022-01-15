@@ -1,6 +1,7 @@
 import normalizePaths from "../../normalizePaths";
 import matchRegexAgainstAllSourceFiles from "../matchRegexAgainstAllSourceFiles";
 import checkHtmlForTsLinks from "./checkHtmlForTsLinks";
+import getServiceWorker from "./getServiceWorker";
 
 export default function tsFileGetter(): string[] {
   const possibleMatches = normalizePaths(
@@ -9,5 +10,12 @@ export default function tsFileGetter(): string[] {
   const htmlFiles = normalizePaths(matchRegexAgainstAllSourceFiles(/\.html$/g));
   const allMatches = checkHtmlForTsLinks(htmlFiles);
 
-  return possibleMatches.filter((value) => allMatches.includes(value));
+  const generalTsMatches = possibleMatches.filter((value) =>
+    allMatches.includes(value)
+  );
+  const serviceWorker = getServiceWorker();
+
+  if (serviceWorker === null) return generalTsMatches;
+
+  return [...generalTsMatches, serviceWorker];
 }
