@@ -1,0 +1,44 @@
+name: Release to CWS
+on:
+  push:
+    branches:
+      - "!*"
+    tags:
+      - "v*"
+
+env:
+  PRIMARY_NODE_VERSION: 16
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+
+      - name: Use Node.js ${{ env.PRIMARY_NODE_VERSION }}
+        uses: actions/setup-node@v2
+        with:
+          node-version: ${{ env.PRIMARY_NODE_VERSION }}
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install cws-publish
+        run: npm i --save-dev cws-publish
+
+      - name: Build extension
+        run: npm run build
+
+      - name: Zip extension
+        uses: vimtor/action-zip@v1
+        with:
+          files: dist/
+
+      - name: Publish to CWS
+        run: npx cws-publish $client_id $client_secret $refresh_token $zip_file $extension_id
+        env:
+          client_id: ${{ secrets.CWS_UPLOAD_CLIENT_ID }}
+          client_secret: ${{ secrets.CWS_UPLOAD_CLIENT_SECRET }}
+          refresh_token: ${{ secrets.CWS_UPLOAD_REFRESH_TOKEN }}
+          zip_file: result.zip
+          extension_id: TODO
