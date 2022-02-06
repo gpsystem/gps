@@ -5,6 +5,7 @@
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
+    "allowSyntheticDefaultImports": true,
     "jsx": "react"
   },
   "include": ["**/*"]
