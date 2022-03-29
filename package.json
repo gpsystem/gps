@@ -50,7 +50,7 @@
     "cheerio": "~1.0.0-rc.10",
     "chokidar": "~3.5.3",
     "cspell": "~5.19.2",
-    "cssnano": "~5.1.4",
+    "cssnano": "~5.1.5",
     "eslint": "~8.11.0",
     "eslint-config-prettier": "~8.5.0",
     "eslint-plugin-react": "~7.29.4",
