@@ -1,4 +1,8 @@
+import { join } from "path";
 import type { Config } from "@jest/types";
+import { mainDir } from "./scripts/build/dirNames";
+
+const srcFolder = join(mainDir, "src");
 
 const config: Config.InitialOptions = {
   preset: "ts-jest/presets/default-esm",
@@ -9,6 +13,8 @@ const config: Config.InitialOptions = {
   },
   moduleNameMapper: {
     "^(\\.{1,2}/.*)\\.js$": "$1",
+    "^@utils/(.*)": join(srcFolder, "utils/") + "$1",
+    "^@message/(.*)": join(srcFolder, "message/") + "$1",
   },
   clearMocks: true,
   collectCoverage: true,
@@ -17,8 +23,8 @@ const config: Config.InitialOptions = {
   resetMocks: true,
   setupFilesAfterEnv: ["./__tests__/jest.setup.js"],
   modulePathIgnorePatterns: ["./__tests__/jest.setup.js"],
-  // TODO: remove this when adding a test suite
-  passWithNoTests: true,
+  verbose: true,
+  moduleFileExtensions: ["js", "jsx", "ts", "tsx", "d.ts", "json", "node"],
 };
 
 export default config;
