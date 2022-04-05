@@ -1,12 +1,18 @@
 {
   "compilerOptions": {
+    "target": "es2015",
     "strict": true,
     "moduleResolution": "node",
     "resolveJsonModule": true,
     "forceConsistentCasingInFileNames": true,
     "noEmit": true,
     "allowSyntheticDefaultImports": true,
-    "jsx": "react"
+    "jsx": "react",
+    "baseUrl": "./src",
+    "paths": {
+      "@utils/*": ["./utils/*"],
+      "@message/*": ["./message/*"]
+    }
   },
   "include": ["**/*"]
 }
