@@ -2,7 +2,7 @@ import minifyOptions from "./minifyOptions";
 import transformHtmlTree from "./transformHtmlTree";
 import { load } from "cheerio";
 import { minify } from "html-minifier";
-import { readFile, writeFile } from "fs-extra";
+import { readFile, outputFile } from "fs-extra";
 import getDestFromSrc from "../getDestFromSrc";
 
 export default async function buildSingleHtmlFile(path: string) {
@@ -13,5 +13,5 @@ export default async function buildSingleHtmlFile(path: string) {
     minifyOptions
   );
 
-  await writeFile(newPath, finalHtml, "utf-8");
+  await outputFile(newPath, finalHtml, "utf-8");
 }

@@ -1,5 +1,5 @@
 import { dirname } from "path";
-import { readFileSync, writeFileSync, mkdirSync } from "fs-extra";
+import { readFileSync, outputFile, mkdirSync } from "fs-extra";
 import postcss from "postcss";
 import getDestFromSrc from "../getDestFromSrc";
 import getPostcssConfig from "./getPostcssConfig";
@@ -11,5 +11,5 @@ export default async function buildSingleCssFile(path: string) {
     from: path,
   });
   mkdirSync(dirname(newPath), { recursive: true });
-  writeFileSync(newPath, compiledCss.css);
+  await outputFile(newPath, compiledCss.css);
 }
