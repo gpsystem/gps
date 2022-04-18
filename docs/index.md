@@ -1,17 +1,8 @@
-# Welcome to MkDocs
+---
+title: GeoFS Plugin System
+---
 
-For full documentation visit [mkdocs.org](https://www.mkdocs.org).
+Welcome to GeoFS Plugin System! GPS is making GeoFS easier by providing a space for anyone to chose from a vast selection of plugins to use in GeoFS.
 
-## Commands
-
-- `mkdocs new [dir-name]` - Create a new project.
-- `mkdocs serve` - Start the live-reloading docs server.
-- `mkdocs build` - Build the documentation site.
-- `mkdocs -h` - Print help message and exit.
-
-## Project layout
-
-    mkdocs.yml    # The configuration file.
-    docs/
-        index.md  # The documentation homepage.
-        ...       # Other markdown pages, images and other files.
+[Quick start](./getting-started.md){ .md-button .md-button--primary }
+[Developers](./developers/index.md){ .md-button }

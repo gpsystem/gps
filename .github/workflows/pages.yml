@@ -11,6 +11,9 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
+        with:
+          # giving git history for git-revision-date-localized-plugin to use
+          fetch-depth: 0
 
       - name: Set up Python 3.10
         uses: actions/setup-python@v3
@@ -22,16 +25,5 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Build docs
-        run: mkdocs build
-
-      - name: Prevent Jekyll from touching the docs
-        run: echo "" > ./site/.nojekyll
-
-      - name: Deploy to GitHub Pages
-        uses: crazy-max/ghaction-github-pages@v2
-        with:
-          target_branch: gh-pages
-          build_dir: site
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      - name: Build and commit docs
+        run: mkdocs gh-deploy --force

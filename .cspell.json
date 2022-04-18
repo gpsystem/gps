@@ -11,7 +11,18 @@
     "**/dist/**",
     "**/node_modules/**"
   ],
-  "words": ["commitlint", "eqeqeq", "geofs", "mkdocs", "nodir", "tailwindcss"],
+  "words": [
+    "backticks",
+    "commitlint",
+    "eqeqeq",
+    "geofs",
+    "mkdocs",
+    "nodir",
+    "progr",
+    "serializedmessage",
+    "tailwindcss",
+    "tldr"
+  ],
   "dictionaries": [
     "typescript",
     "softwareTerms",
