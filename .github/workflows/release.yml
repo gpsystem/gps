@@ -7,7 +7,7 @@ on:
       - "v*"
 
 env:
-  PRIMARY_NODE_VERSION: 16
+  PRIMARY_NODE_VERSION: 16.x
 
 jobs:
   release:
@@ -24,7 +24,7 @@ jobs:
         run: npm ci
 
       - name: Install cws-publish
-        run: npm i --save-dev cws-publish
+        run: npm i cws-publish -g
 
       - name: Build extension
         run: npm run build
@@ -35,7 +35,7 @@ jobs:
           files: dist/
 
       - name: Publish to CWS
-        run: npx cws-publish $client_id $client_secret $refresh_token $zip_file $extension_id
+        run: sudo cws-publish $client_id $client_secret $refresh_token $zip_file $extension_id
         env:
           client_id: ${{ secrets.CWS_UPLOAD_CLIENT_ID }}
           client_secret: ${{ secrets.CWS_UPLOAD_CLIENT_SECRET }}
