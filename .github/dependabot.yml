@@ -9,3 +9,7 @@ updates:
     schedule:
       interval: "daily"
     versioning-strategy: increase
+  - package-ecosystem: "pip"
+    directory: "/"
+    schedule:
+      interval: "daily"
