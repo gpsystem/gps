@@ -8,14 +8,14 @@
       
       
       
-        <link rel="canonical" href="https://gpsystem.github.io/gps/contributing/style/src/">
+        <link rel="canonical" href="https://gpsystem.github.io/gps/contributing/style/code/">
       
       <link rel="icon" href="../../../assets/images/favicon.png">
       <meta name="generator" content="mkdocs-1.3.0, mkdocs-material-8.2.9">
     
     
       
-        <title>Source code - GeoFS Plugin System</title>
+        <title>Code - GeoFS Plugin System</title>
       
     
     
@@ -64,6 +64,11 @@
     <label class="md-overlay" for="__drawer"></label>
     <div data-md-component="skip">
       
+        
+        <a href="#code-style-guide" class="md-skip">
+          Skip to content
+        </a>
+      
     </div>
     <div data-md-component="announce">
       
@@ -93,7 +98,7 @@
         <div class="md-header__topic" data-md-component="header-topic">
           <span class="md-ellipsis">
             
-              Source code
+              Code
             
           </span>
         </div>
@@ -478,9 +483,11 @@
       <input class="md-nav__toggle md-toggle" data-md-toggle="toc" type="checkbox" id="__toc">
       
       
+        
+      
       
       <a href="./" class="md-nav__link md-nav__link--active">
-        Source code
+        Code
       </a>
       
     </li>
@@ -813,6 +820,8 @@
   
   
   
+    
+  
   
 </nav>
                   </div>
@@ -824,26 +833,68 @@
             <article class="md-content__inner md-typeset">
               
                 
-  <a href="https://github.com/gpsystem/gps/edit/master/docs/contributing/style/src.md" title="Edit this page" class="md-content__button md-icon">
+  <a href="https://github.com/gpsystem/gps/edit/master/docs/contributing/style/code.md" title="Edit this page" class="md-content__button md-icon">
     <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20.71 7.04c.39-.39.39-1.04 0-1.41l-2.34-2.34c-.37-.39-1.02-.39-1.41 0l-1.84 1.83 3.75 3.75M3 17.25V21h3.75L17.81 9.93l-3.75-3.75L3 17.25Z"/></svg>
   </a>
 
 
 
-  <h1>Source code</h1>
-
-
+<h1 id="code-style-guide">Code style guide</h1>
+<details class="tldr">
+<summary>TL;DR</summary>
+<p>Todo.</p>
+</details>
+<ul>
+<li>Use comments where necessary.<ul>
+<li>Don't write unnecessary comments like this:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// This is a function</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">function</span> <span class="nx">func</span><span class="p">()</span> <span class="p">{</span>
+</code></pre></div></li>
+<li>Write comments where a line's intention cannot be clearly understood, like this:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Explain what the complex logic does</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">if</span> <span class="p">(</span><span class="cm">/* complex logic */</span><span class="p">)</span> <span class="p">{</span>
+</code></pre></div></li>
+<li>Write <a href="https://jsdoc.app/">JSDoc</a> comments at the top of functions, like this:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="cm">/**</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="cm"> * Does something.</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="cm"> * @param param1 A parameter.</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="cm"> */</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="kd">function</span> <span class="nx">func</span><span class="p">(</span><span class="nx">param1</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span>
+</code></pre></div><ul>
+<li>Don't add <code>@returns</code> comments to functions that don't return values.</li>
+<li>Don't annotate the types of values that already have their types explicitly declared (or implicitly inferred)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Always annotate variables, paramaters, and return types.
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="c1">// Don&#39;t do this!</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="kd">const</span> <span class="nx">str</span>: <span class="kt">string</span> <span class="o">=</span> <span class="s2">&quot;&quot;</span><span class="p">;</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="kd">function</span> <span class="nx">func</span><span class="p">(</span><span class="nx">param</span><span class="p">)</span> <span class="p">{</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a>    <span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="p">}</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="c1">// Do this!</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="kd">const</span> <span class="nx">str</span>: <span class="kt">string</span> <span class="o">=</span> <span class="nx">someFunction</span><span class="p">();</span> <span class="c1">// this helps when changing function return types</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="kd">function</span> <span class="nx">func</span><span class="p">(</span><span class="nx">param</span>: <span class="kt">string</span><span class="p">)</span><span class="o">:</span> <span class="ow">void</span> <span class="p">{</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a>    <span class="k">return</span><span class="p">;</span>
+<a id="__codelineno-3-11" name="__codelineno-3-11" href="#__codelineno-3-11"></a><span class="p">}</span>
+</code></pre></div><ul>
+<li>See <a href="https://typescript-eslint.io/rules/no-inferrable-types">@typescript-eslint/no-inferrable-types</a> for more information on annotating variables.</li>
+</ul>
+</li>
+</ul>
 
   <hr>
 <div class="md-source-file">
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 20, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 21, 2022</span>
       
         <br>
         Created:
-        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 20, 2022</span>
+        <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 21, 2022</span>
       
     
   </small>
