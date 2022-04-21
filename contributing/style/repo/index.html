@@ -840,14 +840,34 @@
 
 
 <h1 id="repository-style-guide">Repository style guide</h1>
-<!-- TODO -->
-
 <details class="tldr">
 <summary>TL;DR</summary>
-<p>Test.</p>
+<p>We use <a href="https://prettier.io/">prettier code style</a>, <a href="https://commitlint.js.org/">conventional commit messages</a>, and <a href="https://streetsidesoftware.github.io/cspell/">cspell spelling</a> to ensure basic code quality. All commits run tests on CI servers. Those tests include typechecking using Microsoft's <a href="https://www.typescriptlang.org/">TypeScript</a>, checking <a href="https://prettier.io/">prettier code style</a>, and linting with <a href="https://eslint.org/">eslint</a> and <a href="https://typescript-eslint.io/">typescript-eslint</a>.</p>
 </details>
 <ul>
-<li>test</li>
+<li>Use <a href="https://prettier.io/">prettier code style</a>.</li>
+<li>Use <a href="https://commitlint.js.org/">conventional commit messages</a>.<ul>
+<li>We reccomend using commitizen to make commit messages easier<ul>
+<li>This repository is not yet commitizen-friendly, check back soon!]</li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="https://docs.microsoft.com/en-us/style-guide/word-choice/use-us-spelling-avoid-non-english-words">Use US spelling</a>.<ul>
+<li>We check spelling with <a href="https://streetsidesoftware.github.io/cspell/">cspell</a>. If cspell throws an incorrect spelling error, you may add the word to the <code>words</code> array in the top-level <code>.cspell.json</code> config file.</li>
+</ul>
+</li>
+<li>Use comments where necessary.<ul>
+<li>Don't write unnecessary comments like this:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1">// This is a function</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="kd">function</span> <span class="nx">func</span><span class="p">()</span> <span class="p">{</span>
+</code></pre></div></li>
+<li>Write comments where a line's intention cannot be clearly understood, like this:
+    <div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="c1">// Explain what the complex logic does</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="k">if</span> <span class="p">(</span><span class="cm">/* complex logic */</span><span class="p">)</span> <span class="p">{</span>
+</code></pre></div></li>
+</ul>
+</li>
 </ul>
 <details class="important" open="open">
 <summary>Important</summary>
@@ -859,7 +879,7 @@
   <small>
     
       Last update:
-      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 20, 2022</span>
+      <span class="git-revision-date-localized-plugin git-revision-date-localized-plugin-date">April 21, 2022</span>
       
         <br>
         Created:
