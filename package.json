@@ -46,7 +46,7 @@
     "@types/yargs": "~17.0.10",
     "@typescript-eslint/eslint-plugin": "~5.19.0",
     "autoprefixer": "~10.4.4",
-    "babel-loader": "~8.2.4",
+    "babel-loader": "~8.2.5",
     "cheerio": "~1.0.0-rc.10",
     "chokidar": "~3.5.3",
     "cspell": "~5.19.7",
