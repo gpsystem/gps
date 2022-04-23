@@ -71,6 +71,11 @@
          <changefreq>daily</changefreq>
     </url>
     <url>
+         <loc>https://gpsystem.github.io/gps/developers/tutorial/creation/</loc>
+         <lastmod>2022-04-23</lastmod>
+         <changefreq>daily</changefreq>
+    </url>
+    <url>
          <loc>https://gpsystem.github.io/gps/developers/tutorial/scaffolding/</loc>
          <lastmod>2022-04-23</lastmod>
          <changefreq>daily</changefreq>
