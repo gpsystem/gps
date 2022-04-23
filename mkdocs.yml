@@ -63,6 +63,7 @@ nav:
       - Docs:
           - api/internal/index.md
           - Utils: api/internal/utils.md
+          - Messages: api/internal/message.md
   - Developers:
       - developers/index.md
       - Tutorial:
