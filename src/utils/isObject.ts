@@ -4,7 +4,7 @@ import type { UnknownObject } from "./UnknownObject";
  * Checks if obj is a vanilla object.
  * This doesn't include any classes.
  */
-export function isObject(obj: unknown): obj is UnknownObject {
+export default function isObject(obj: unknown): obj is UnknownObject {
   if (
     typeof obj === "object" &&
     !Array.isArray(obj) &&

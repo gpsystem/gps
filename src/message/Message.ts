@@ -1,10 +1,10 @@
+import messageFromObject from "./messageFromObject";
+import type { SerializedMessage, UnknownMessage } from "./MessageUtilTypes";
 import type { Payloads, payloadCodeUnion } from "@utils/index";
 import { isObject } from "@utils/index";
-import { messageFromObject } from "./messageFromObject";
-import type { SerializedMessage, UnknownMessage } from "./MessageUtilTypes";
 
 // C stands for code
-export class Message<C extends payloadCodeUnion> {
+export default class Message<C extends payloadCodeUnion> {
   /**
    * Turns an input into a Message instance.
    * Returns null if the input is not able to be parsed correctly.

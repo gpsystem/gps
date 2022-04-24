@@ -1,7 +1,7 @@
-import getMainDir from "../../dirNames/getMainDir";
-import { existsSync, readJsonSync } from "fs-extra";
 import { join, dirname } from "path";
+import { existsSync, readJsonSync } from "fs-extra";
 import type { ManifestType } from "../../buildManifest/manipulateManifest";
+import getMainDir from "../../dirNames/getMainDir";
 
 export default function getServiceWorker(): string | null {
   const manifestFileLink = join(getMainDir(), "src", "manifest.json");

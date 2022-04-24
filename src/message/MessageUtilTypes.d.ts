@@ -1,5 +1,5 @@
+import type Message from "./Message";
 import type { Payloads, payloadCodeUnion, UnknownObject } from "@utils/index";
-import type { Message } from "./Message";
 
 export type UnknownPayload = Payloads[payloadCodeUnion];
 

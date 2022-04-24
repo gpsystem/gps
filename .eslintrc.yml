@@ -4,6 +4,8 @@ env:
 extends:
   - eslint:recommended
   - plugin:react/recommended
+  - plugin:import/recommended
+  - plugin:import/typescript
   - plugin:@typescript-eslint/recommended
   - prettier
 parser: "@typescript-eslint/parser"
@@ -20,8 +22,30 @@ rules:
     - error
   "@typescript-eslint/no-non-null-assertion":
     - off
+  import/prefer-default-export:
+    - warn
+  import/no-unresolved:
+    - error
+    - ignore:
+        - ^(@utils|@message)/index$
+  import/order:
+    - error
+    - alphabetize:
+        order: asc
+        caseInsensitive: true
   eqeqeq:
     - error
+root: true
 settings:
   react:
     version: detect
+  import/internal-regex: ^(@utils|@message)
+  import/resolver:
+    node:
+      extensions:
+        - .d.ts
+        - .ts
+        - .tsx
+        - .js
+        - .jsx
+        - .json

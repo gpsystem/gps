@@ -1,2 +1,4 @@
-export * from "./Message";
+import Message from "./Message";
+
+export { Message };
 export * from "./MessageUtilTypes";

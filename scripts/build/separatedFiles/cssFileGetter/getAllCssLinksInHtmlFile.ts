@@ -1,6 +1,6 @@
 import { join, dirname } from "path";
-import { readFileSync } from "fs-extra";
 import { load } from "cheerio";
+import { readFileSync } from "fs-extra";
 
 export default function getAllCssLinksInHtmlFile(filePath: string): string[] {
   const htmlContent = readFileSync(filePath, "utf-8");

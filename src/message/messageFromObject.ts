@@ -1,11 +1,11 @@
-import { isObject, payloadCodes } from "@utils/index";
-import type { payloadCodeUnion, UnknownObject } from "@utils/index";
-import { Message } from "./Message";
+import Message from "./Message";
 import type {
   UnknownMessage,
   UnknownPayload,
   UnknownSerializedMessage,
 } from "./MessageUtilTypes";
+import { isObject, payloadCodes } from "@utils/index";
+import type { payloadCodeUnion, UnknownObject } from "@utils/index";
 
 function validateObjectHasProps(
   obj: UnknownObject
@@ -42,7 +42,9 @@ function getPropsFromSerializedMessage(msg: UnknownSerializedMessage): {
  * Turns an object into a Message instance.
  * Returns null if the object is not able to be parsed correctly.
  */
-export function messageFromObject(obj: UnknownObject): UnknownMessage | null {
+export default function messageFromObject(
+  obj: UnknownObject
+): UnknownMessage | null {
   if (!validateObjectHasProps(obj)) return null;
   const { sender, target, code, payload } = getPropsFromSerializedMessage(obj);
   return new Message(sender, target, code, payload);

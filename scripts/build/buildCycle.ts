@@ -1,10 +1,10 @@
 import buildCss from "./buildCss";
+import buildHtml from "./buildHtml";
+import buildManifest from "./buildManifest";
 import buildScripts from "./buildScripts";
 import clearBuildDir from "./clearBuildDir";
 import copyFiles from "./copyFiles";
-import buildHtml from "./buildHtml";
 import fileLists from "./separatedFiles";
-import buildManifest from "./buildManifest";
 
 export default async function runBuildCycle(dev: boolean) {
   clearBuildDir();

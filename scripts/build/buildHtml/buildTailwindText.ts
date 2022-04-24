@@ -1,7 +1,7 @@
 import * as cssnano from "cssnano";
-import * as tailwind from "tailwindcss";
 import postcss from "postcss";
 import type { AcceptedPlugin } from "postcss";
+import * as tailwind from "tailwindcss";
 
 export default async function buildTailwindText(
   originalCss: string
