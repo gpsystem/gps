@@ -18,7 +18,6 @@ export default function runWebpack(config: webpack.Configuration) {
         }
 
         if (stats?.hasErrors()) {
-          console.error(info?.errors);
           reject(info?.errors);
         }
       });
