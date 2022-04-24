@@ -32,10 +32,14 @@
     "url": "https://github.com/gpsystem/gps/issues"
   },
   "homepage": "https://github.com/gpsystem/gps#readme",
+  "dependencies": {
+    "browser-extension-url-match": "~0.3.3"
+  },
   "devDependencies": {
     "@commitlint/cli": "~16.2.3",
     "@commitlint/config-conventional": "~16.2.1",
     "@geps/geofs-types": "~1.0.1",
+    "@types/chrome": "~0.0.181",
     "@types/fs-extra": "~9.0.13",
     "@types/glob": "~7.2.0",
     "@types/html-minifier": "~4.0.2",

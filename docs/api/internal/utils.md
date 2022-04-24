@@ -4,6 +4,15 @@
 
 Payloads is an interface, and is not accessible at runtime. It defines all the potential codes of messages, and the type their payloads must adhere to. The types are all objects, and never contain the key "code", as it is overwritten in the passing of the message.
 
+Here are all the payload codes with their descriptions.
+
+| Code | Description                                                                              |
+| ---- | ---------------------------------------------------------------------------------------- |
+| 0000 | A test code.                                                                             |
+| 0001 | Asking the background service worker what the id of the sender is. Sender id must be -2. |
+| 1000 | A test response code.                                                                    |
+| 1001 | The service worker's response to code 0001.                                              |
+
 #### payloadCodeUnion
 
 payloadCodeUnion is a type, and is not accessible at runtime. It is simply the union of all the codes defined in [payloadCodes][].
