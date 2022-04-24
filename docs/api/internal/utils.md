@@ -28,7 +28,16 @@ UnknownObject is a type, and is not accessible at runtime. Anything assignable t
 
 ```ts
 const obj: UnknownObject = { foo: "bar" }; // No errors
-const notAnObj: UnknownObject = [1, 2, 3]; // ERROR: number[] is not assignable to UnknownObject
+const notAnObj: UnknownObject = [1, 2, 3]; // ERROR: Type 'number[]' is not assignable to type 'UnknownObject'.
+```
+
+#### EmptyObject
+
+EmptyObject is a type, and is not accessible at runtime. Anything assignable to this type is an empty object.
+
+```ts
+const obj: EmptyObject = {}; // No errors
+const obj: EmptyObject = { foo: "bar" }; // ERROR: type string is not assignable to never
 ```
 
 #### payloadCodes
