@@ -1,6 +1,8 @@
+import type { EmptyObject } from "./Objects";
+
 // Maintainers: When adding codes, add them to the Payloads interface and the codes array
 
-export const payloadCodes = ["0000"] as const;
+export const payloadCodes = ["0000", "0001", "1000", "1001"] as const;
 
 /**
  * The types of all the payloads, indexed by the message codes to be used when they are used as payloads.
@@ -10,6 +12,13 @@ export const payloadCodes = ["0000"] as const;
 export interface Payloads {
   "0000": {
     content: string;
+  };
+  "0001": EmptyObject;
+  "1000": {
+    content: string;
+  };
+  "1001": {
+    id: number;
   };
 }
 

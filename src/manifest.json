@@ -4,6 +4,9 @@
   "name": "GeoFS Plugin System",
   "version": "0.0.0",
   "background": {
-    "service_worker": "./service_worker.ts"
-  }
+    "service_worker": "./service_worker/index.ts"
+  },
+  "action": {},
+  "permissions": ["scripting", "activeTab"],
+  "host_permissions": ["https://*.geo-fs.com/"]
 }

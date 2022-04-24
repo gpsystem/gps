@@ -1,4 +1,4 @@
-import type { UnknownObject } from "./UnknownObject";
+import type { UnknownObject } from "./Objects";
 
 /**
  * Checks if obj is a vanilla object.

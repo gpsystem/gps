@@ -1,3 +1,5 @@
 rules:
   import/no-nodejs-modules:
     - error
+  no-console:
+    - warn
