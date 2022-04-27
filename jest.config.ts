@@ -1,30 +1,35 @@
 import { join } from "path";
-import type { Config } from "@jest/types";
-import { mainDir } from "./scripts/build/dirNames";
+import type { InitialOptionsTsJest } from "ts-jest";
 
-const srcFolder = join(mainDir, "src");
+export const srcFolder: string = join(__dirname, "src");
 
-const config: Config.InitialOptions = {
+const moduleNameMapper: InitialOptionsTsJest["moduleNameMapper"] = {
+  "^(\\.{1,2}/.*)\\.js$": "$1",
+  "^@utils/(.*)": join(srcFolder, "utils/") + "$1",
+  "^@message/(.*)": join(srcFolder, "message/") + "$1",
+};
+
+export const commonConfig: InitialOptionsTsJest = {
   preset: "ts-jest/presets/default-esm",
   globals: {
     "ts-jest": {
-      useESM: true,
+      tsconfig: "./tsconfig.spec.json",
+      isolatedModules: true,
     },
   },
-  moduleNameMapper: {
-    "^(\\.{1,2}/.*)\\.js$": "$1",
-    "^@utils/(.*)": join(srcFolder, "utils/") + "$1",
-    "^@message/(.*)": join(srcFolder, "message/") + "$1",
-  },
+  moduleNameMapper,
   clearMocks: true,
+  resetMocks: true,
+  moduleFileExtensions: ["js", "ts", "tsx", "d.ts", "json", "node"],
+};
+
+const config: InitialOptionsTsJest = {
+  projects: ["./jest.config.unit.ts", "./jest.config.e2e.ts"],
   collectCoverage: true,
+  collectCoverageFrom: ["src/**/*.{ts,tsx}"],
   coverageDirectory: "coverage",
   coverageProvider: "v8",
-  resetMocks: true,
-  setupFilesAfterEnv: ["./__tests__/jest.setup.js"],
-  modulePathIgnorePatterns: ["./__tests__/jest.setup.js"],
   verbose: true,
-  moduleFileExtensions: ["js", "jsx", "ts", "tsx", "d.ts", "json", "node"],
 };
 
 export default config;

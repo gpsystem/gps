@@ -147,7 +147,7 @@ describe("Message from object", () => {
     ];
 
     allParams.forEach((param) => {
-      expect(fromObject(param)).not.toBeUndefined();
+      expect(fromObject(param)).toBeDefined();
     });
   });
 
