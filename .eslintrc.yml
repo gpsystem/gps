@@ -15,6 +15,7 @@ parserOptions:
   ecmaVersion: 13
   sourceType: module
 plugins:
+  - jest
   - react
   - "@typescript-eslint"
 rules:
@@ -35,8 +36,26 @@ rules:
         caseInsensitive: true
   eqeqeq:
     - error
+overrides:
+  - files:
+      - "**/*.js"
+    rules:
+      "@typescript-eslint/no-var-requires":
+        - off
+  - files:
+      - test/**
+    plugins:
+      - jest
+    extends:
+      - plugin:jest/recommended
+      - plugin:jest/style
+    rules:
+      jest/prefer-todo:
+        - warn
 root: true
 settings:
+  jest:
+    version: 28
   react:
     version: detect
   import/internal-regex: ^(@utils|@message)
