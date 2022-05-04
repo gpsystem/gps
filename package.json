@@ -39,7 +39,7 @@
     "@commitlint/cli": "~16.2.4",
     "@commitlint/config-conventional": "~16.2.4",
     "@geps/geofs-types": "~1.0.1",
-    "@types/chrome": "~0.0.183",
+    "@types/chrome": "~0.0.184",
     "@types/fs-extra": "~9.0.13",
     "@types/glob": "~7.2.0",
     "@types/html-minifier": "~4.0.2",
