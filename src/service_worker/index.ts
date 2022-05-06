@@ -14,8 +14,8 @@ function worker(): void {
     ) {
       startGeoTabProcess(tab);
     } else {
-      // TODO: replace this with opening the home page
-      chrome.tabs.create({ url: "https://www.geo-fs.com/" });
+      const homePageUrl: string = chrome.runtime.getURL("home/index.dist.html");
+      chrome.tabs.create({ url: homePageUrl });
     }
   });
 }
