@@ -33,7 +33,8 @@
   },
   "homepage": "https://github.com/gpsystem/gps#readme",
   "dependencies": {
-    "browser-extension-url-match": "~0.3.3"
+    "browser-extension-url-match": "~0.3.3",
+    "prettier-plugin-tailwindcss": "~0.1.10"
   },
   "devDependencies": {
     "@commitlint/cli": "~16.2.4",
