@@ -46,7 +46,7 @@ jobs:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
 
       - name: Test Code
-        uses: mujo-code/puppeteer-headful@v2
+        uses: mujo-code/puppeteer-headful@16.6.0
         env:
           CI: "true"
         with:
@@ -136,7 +136,7 @@ jobs:
           PUPPETEER_SKIP_CHROMIUM_DOWNLOAD: "true"
 
       - name: Run tests
-        uses: mujo-code/puppeteer-headful@v2
+        uses: mujo-code/puppeteer-headful@16.6.0
         env:
           CI: "true"
         with:
