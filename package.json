@@ -37,7 +37,7 @@
   },
   "devDependencies": {
     "@commitlint/cli": "~16.3.0",
-    "@commitlint/config-conventional": "~16.2.4",
+    "@commitlint/config-conventional": "~17.0.0",
     "@geps/geofs-types": "~1.0.1",
     "@types/chrome": "~0.0.188",
     "@types/expect-puppeteer": "~4.4.7",
