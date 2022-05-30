@@ -9,7 +9,7 @@ export default interface BuildCycleEvents {
   ): this;
   on(
     eventName: "warn",
-    listener: (warning: Error, stepName: string) => void
+    listener: (warning: unknown, stepName: string) => void
   ): this;
   on(
     eventName: "error",

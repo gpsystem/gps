@@ -16,6 +16,6 @@ export type AllMessages =
     }
   | {
       name: "warn";
-      warning: Error;
+      warning: unknown;
       stepName: string;
     };

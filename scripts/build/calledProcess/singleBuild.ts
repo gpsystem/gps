@@ -11,7 +11,7 @@ export default function singleBuild(
 ): Promise<void> {
   return new Promise<void>((resolve) => {
     const cycle: BuildCycleEvents = buildCycle(dev);
-    const warnings: [string, Error][] = [];
+    const warnings: [string, unknown][] = [];
 
     cycle.on("message", (code, stepName) => {
       switch (code) {

@@ -4,20 +4,21 @@ import MessageCodes from "../../utils/MessageCodes";
 import getMessageSender from "./getMessageSender";
 
 type StepCallback = (helpers: {
-  sendWarning(warning: Error): void;
+  sendWarning(warning: unknown): void;
   sendError(error: Error): void;
   sendMessageToParent(msg: AllMessages): void;
 }) => void | Promise<void>;
 
+// food for thought: would it be a good idea to show all currently executing steps
+// it would make it a lot easier to see what's going on
 export default function stepFactory(
   parentPort: MessagePort
 ): (name: string, cb: StepCallback) => Promise<void> {
   const sendMessageToParent = getMessageSender(parentPort);
 
   return async function (stepName, cb) {
-    // TODO: accept everything, not just errors
     const sendWarning: Parameters<StepCallback>[0]["sendWarning"] = (
-      warning: Error
+      warning: unknown
     ): void => {
       sendMessageToParent({
         name: "warn",
