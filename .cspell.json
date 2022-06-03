@@ -16,6 +16,7 @@
   "words": [
     "backticks",
     "commitlint",
+    "cssnano",
     "eqeqeq",
     "geofs",
     "mkdocs",
