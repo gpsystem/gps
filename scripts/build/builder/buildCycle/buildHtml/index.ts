@@ -49,6 +49,8 @@ async function buildHtmlFile(
     }),
     buildTsFiles($, { linkedTsFiles, htmlFilePath, dev, sendWarning }),
   ]);
+  // TODO: make replaceLinks not rely on side effects from the building functions (or find a workaround)
+  // Once this is done, move renameLinks into the Promise.all for a performance improvement
   await renameLinks($, htmlFilePath);
 
   const distFilePath: string = join(

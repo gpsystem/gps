@@ -32,6 +32,7 @@ export default async function buildManifest(
 function replaceManifestLinks<T>(objSource: T): T {
   // there are a couple assertions of objSource here
   // there seems to be a problem with narrowing in switch (typeof) statements when generics are involved
+  // TODO: figure out why assertions are needed, file an upstream issue to TS if needed
   switch (typeof objSource) {
     case "object":
       if (objSource === null) break;

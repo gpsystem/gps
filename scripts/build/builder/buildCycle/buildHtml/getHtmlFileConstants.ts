@@ -1,5 +1,5 @@
 import { dirname, resolve } from "node:path";
-import type { CheerioAPI } from "cheerio";
+import type { Cheerio, CheerioAPI, Element } from "cheerio";
 import madge from "madge";
 
 export type HtmlFileConstants = {
@@ -15,18 +15,25 @@ export default async function getHtmlFileConstants(
   const linkedCssFiles: string[] = [
     ...new Set(
       $("link")
-        .filter((_, el) => $(el).attr("rel") === "stylesheet")
-        .map((_, el) => resolve(dirname(htmlFilePath), $(el).attr("href")!))
         .get()
-        .filter(Boolean)
+        .map((el): string | undefined => {
+          const element: Cheerio<Element> = $(el);
+
+          // implicitly returns undefined
+          if (element.attr("rel") !== "stylesheet") return;
+          return resolve(dirname(htmlFilePath), element.attr("href") ?? "");
+        })
+        .filter<string>((val): val is string => val !== undefined)
     ),
   ];
   const linkedTsFiles: string[] = [
     ...new Set(
       $("script")
-        .map((_, el) => resolve(dirname(htmlFilePath), $(el).attr("src")!))
         .get()
-        .filter(Boolean)
+        .map((el): string | undefined =>
+          resolve(dirname(htmlFilePath), $(el).attr("src")!)
+        )
+        .filter<string>((val): val is string => val !== undefined)
     ),
   ];
   const tsxFilesToBuildCssFrom: string[] = await (async () => {

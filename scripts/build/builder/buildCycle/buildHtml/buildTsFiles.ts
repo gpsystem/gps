@@ -1,5 +1,5 @@
 import { dirname, join, relative } from "node:path";
-import type { CheerioAPI } from "cheerio";
+import type { Cheerio, CheerioAPI, Element } from "cheerio";
 import { distDir, srcDir } from "../../../utils/directories";
 import {
   normalizePathToForwardSlash,
@@ -32,19 +32,19 @@ export default async function buildTsFiles(
 
       await runWebpack(webpackConfig, sendWarning);
       addNewFileName(tsFilePath, tsDestPath);
-      $("script")
-        .filter(
-          (_, el) =>
-            join(dirname(htmlFilePath), $(el).attr("src")!) === tsFilePath
+      $("script").each((_, el) => {
+        const element: Cheerio<Element> = $(el);
+        if (
+          join(dirname(htmlFilePath), element.attr("src") ?? "") === tsFilePath
         )
-        .each((_, el) => {
-          $(el).attr(
-            "src",
-            normalizeRelPathToDotSlash(
-              normalizePathToForwardSlash(relative(htmlDestDir, tsDestPath))
-            )
-          );
-        });
+          return;
+        element.attr(
+          "src",
+          normalizeRelPathToDotSlash(
+            normalizePathToForwardSlash(relative(htmlDestDir, tsDestPath))
+          )
+        );
+      });
     })
   );
 }

@@ -1,3 +1,6 @@
+// THIS IS AUTO-GENERATED FROM manifestSchema.json
+// DO NOT MODIFY WITHOUT MAKING THE EQUIVALANT CHANGE TO manifestSchema.json
+
 type MatchPattern = string;
 type Icon = string;
 type GlobPattern = string;

@@ -1,6 +1,6 @@
 import { readFile } from "node:fs/promises";
 import { dirname, join } from "node:path";
-import type { CheerioAPI } from "cheerio";
+import type { Cheerio, CheerioAPI, Element } from "cheerio";
 import cssnano from "cssnano";
 import type { AcceptedPlugin } from "postcss";
 import postcss from "postcss";
@@ -46,15 +46,15 @@ export default async function buildCssFiles(
           })
         );
       }
-      $("link")
-        .filter(
-          (_, el) =>
-            $(el).attr("rel") === "stylesheet" &&
-            join(dirname(htmlFilePath), $(el).attr("href")!) === cssFilePath
+      $("link").each((_, el) => {
+        const element: Cheerio<Element> = $(el);
+        if (
+          element.attr("rel") === "stylesheet" &&
+          join(dirname(htmlFilePath), element.attr("href") ?? "") ===
+            cssFilePath
         )
-        .each((_, el) => {
-          $(el).remove();
-        });
+          element.remove();
+      });
       $("head").append(`<style>${result.css}</style>`);
     })
   );

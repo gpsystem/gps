@@ -11,6 +11,7 @@ export default function validateManifest(
   const {
     Draft07: SchemaValidator,
   }: { Draft07: Draft07Type } = require("json-schema-library");
+  // TODO: figure out why ts throws here, file an upstream bug report to TS if needed
   // eslint-disable-next-line @typescript-eslint/ban-ts-comment
   // @ts-ignore SchemaValidator is a class, incorrect error reported here
   const validator = new SchemaValidator(manifestSchema);

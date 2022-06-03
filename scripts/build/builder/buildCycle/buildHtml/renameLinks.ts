@@ -11,6 +11,9 @@ export default async function renameLinks(
   $: CheerioAPI,
   htmlFilePath: string
 ): Promise<void> {
+  // hacky workaround, can't break from loops inside of functions
+  const breakingError: Error = new Error("breaking");
+
   $("[src], [href]").each((_, el) => {
     const attribs: { [key: string]: string | undefined } | undefined =
       $(el).attr();
@@ -35,8 +38,7 @@ export default async function renameLinks(
           );
           $(el).attr(attribName, newPath);
 
-          // hacky workaround, can't break from functions
-          throw "breaking";
+          throw breakingError;
         }
       };
 
@@ -47,7 +49,8 @@ export default async function renameLinks(
           replaceRelPath("src", src);
         }
       } catch (err) {
-        if (err === "breaking") break;
+        if (err === breakingError) break;
+        else throw err;
       }
     }
   });
