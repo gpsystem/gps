@@ -2,7 +2,9 @@
   "extends": "../tsconfig.json",
   "compilerOptions": {
     "target": "esnext",
-    "module": "commonjs"
+    "module": "esnext",
+    "noEmit": false,
+    "removeComments": true
   },
   "include": ["**/*"]
 }

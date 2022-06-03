@@ -1,6 +1,3 @@
-import { join } from "node:path";
-import { mainDir } from "../../../scripts/build/dirNames";
+import { distDir } from "../../../scripts/build/utils/directories";
 
-const extensionPath: string = join(mainDir, "dist/");
-
-export default extensionPath;
+export default distDir;

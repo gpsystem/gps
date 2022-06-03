@@ -9,7 +9,9 @@
     "**/*.{json,snap}",
     "**/coverage/**",
     "**/dist/**",
-    "**/node_modules/**"
+    "**/node_modules/**",
+    "scripts/build/builder/buildCycle/buildManifest/manifestType.d.ts",
+    "scripts/build/builder/buildCycle/buildManifest/manifestSchema.json"
   ],
   "words": [
     "backticks",
@@ -19,6 +21,7 @@
     "mkdocs",
     "nodir",
     "progr",
+    "runtimes",
     "serializedmessage",
     "tailwindcss",
     "tldr"
